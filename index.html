@@ -111,6 +111,27 @@ h2{font-family:var(--display);font-weight:400;font-size:var(--s4);letter-spacing
 .fit li span{color:var(--muted);font-size:.95rem}
 @media (max-width:760px){.fit{grid-template-columns:1fr}}
 
+.topbar{background:var(--ok);color:var(--void);text-align:center;font:700 var(--s1)/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:10px 16px}
+.topbar a{color:var(--void);text-decoration:underline;text-underline-offset:3px;margin-left:6px;white-space:nowrap}
+.promise{margin:0 0 26px;display:inline-flex;align-items:center;gap:14px;padding:14px 20px;border-radius:14px;
+  border:2px solid var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--void));
+  box-shadow:0 0 40px -10px color-mix(in srgb,var(--ok) 70%,transparent)}
+.promise .chk{flex:none;width:38px;height:38px;border-radius:50%;background:var(--ok);color:var(--void);display:grid;place-items:center;font-weight:800;font-size:1.25rem}
+.promise strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(.95rem,2.2vw,1.2rem);letter-spacing:.03em;color:var(--ok);text-transform:uppercase;line-height:1.3}
+.promise span.small{display:block;color:var(--muted);font-size:var(--s1);margin-top:2px}
+.guarantee{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:32px;border-radius:16px;
+  border:1px solid color-mix(in srgb,var(--ok) 40%,var(--line));
+  background:linear-gradient(160deg,color-mix(in srgb,var(--ok) 10%,var(--void)),var(--void) 70%)}
+.guarantee>*{min-width:0}
+.seal{width:96px;height:96px;border-radius:50%;border:2px solid var(--ok);display:grid;place-items:center;text-align:center;
+  font-family:var(--mono);font-size:.7rem;line-height:1.3;color:var(--ok);letter-spacing:.06em;text-transform:uppercase}
+.seal b{display:block;font-family:var(--display);font-weight:400;font-size:1.35rem;letter-spacing:0}
+.guarantee h2{margin-bottom:12px}
+.gbig{font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.25;color:var(--ink)}
+.guarantee p{margin:0;color:var(--muted);max-width:62ch}
+.guarantee .terms{margin-top:12px;font-size:var(--s1)}
+@media (max-width:640px){.guarantee{grid-template-columns:1fr;padding:24px}.seal{width:88px;height:88px;font-size:.62rem;letter-spacing:.03em}}
+
 .contact{text-align:left;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;
   background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:36px}
 .contact>*{min-width:0}
@@ -128,6 +149,7 @@ footer{padding-block:32px 40px;color:var(--muted);font-size:var(--s1);display:fl
 </head>
 <body>
 
+<div class="topbar">We help you improve, or your money back <a href="#guarantee">See the guarantee</a></div>
 <nav>
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Kojtech AI home">
@@ -148,6 +170,10 @@ footer{padding-block:32px 40px;color:var(--muted);font-size:var(--s1);display:fl
       <p class="eyebrow">AI agents for local businesses</p>
       <h1>Every call answered. <em>Every lead</em> followed up.</h1>
       <p class="lede">Kojtech AI builds receptionists, websites and AI agents that work while you're on the job, so new customers never land in voicemail.</p>
+      <a class="promise" href="#guarantee" style="text-decoration:none">
+        <span class="chk" aria-hidden="true">✓</span>
+        <span><strong>We help you improve, or your money back.</strong><span class="small">Every system is reviewed by our devs. More leads, more booked jobs, less busywork. Guaranteed.</span></span>
+      </a>
       <div class="cta">
         <a class="btn" href="https://calendly.com/kojtechai-kojtechai/30min" target="_blank" rel="noopener">Book a 30-minute call</a>
         <a class="btn ghost" href="https://agent.retellai.com/orb/agent_d2ab037fca839e683aa677bef9?token=69c54552108ffcb3ee37ed9d86053231" target="_blank" rel="noopener">&#9654; Talk to our AI receptionist</a>
@@ -220,6 +246,18 @@ footer{padding-block:32px 40px;color:var(--muted);font-size:var(--s1);display:fl
         <li><strong>Appointment businesses</strong><span>Salons, barbers, auto shops, clinics, law offices</span></li>
         <li><strong>Local shops and food</strong><span>Restaurants, boutiques, studios, caterers</span></li>
       </ul>
+    </div>
+  </section>
+
+  <section id="guarantee">
+    <div class="guarantee">
+      <div class="seal" aria-hidden="true"><span><b>30</b>day<br>guarantee</span></div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;color:var(--ok)">The Kojtech Guarantee</p>
+        <h2 class="gbig">We help you improve, or you get your money back.</h2>
+        <p>Every system we build is reviewed by our devs before it goes live and checked again after launch. We'll increase your leads, booked jobs or efficiency. If your new system doesn't bring you more leads or save you real time within 30 days of going live, we refund your setup fee.</p>
+        <p class="terms">Refund applies to setup fees when lead volume or time saved doesn't improve within 30 days of launch. The system must stay live for the full 30 days. Refund requests are reviewed by our in-house team.</p>
+      </div>
     </div>
   </section>
 
