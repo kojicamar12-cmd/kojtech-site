@@ -168,6 +168,14 @@ footer a:hover{color:var(--text)}
   section{padding:72px 0}
 }
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1848333082971520');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1848333082971520&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -449,6 +457,11 @@ footer a:hover{color:var(--text)}
 const io=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting){n.target.classList.add('on');io.unobserve(n.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.querySelectorAll('.nav-links a').forEach(a=>a.onclick=()=>document.getElementById('links').classList.remove('open'));
+// Meta Pixel: Lead when someone books a call or talks to the AI receptionist
+document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a||!window.fbq)return;
+  if(a.href.includes('calendly.com'))fbq('track','Lead',{content_name:'Book a call'});
+  else if(a.href.includes('retellai.com'))fbq('track','Lead',{content_name:'AI receptionist demo'});
+  else if(a.href.startsWith('tel:')||a.href.startsWith('mailto:'))fbq('track','Contact');});
 </script>
 </body>
 </html>
